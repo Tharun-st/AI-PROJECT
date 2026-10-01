@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>AI Vision Inventory Scanner</title>
+</head>
+<body>
+    <h1>AI Vision Inventory Scanner</h1>
+    <a href="/">Back to Home</a>
+    <hr>
+    
+    <h2>Identify New Item</h2>
+    <form method="POST" action="/vision" enctype="multipart/form-data">
+        <label for="image">Upload Item Photo:</label><br>
+        <input type="file" id="image" name="image" accept="image/*" required><br><br>
+        
+        <label for="prompt">Instructions for AI:</label><br>
+        <input type="text" id="prompt" name="prompt" value="Analyze this image and identify the inventory item, condition, and estimated quantity." size="80"><br><br>
+        
+        <input type="submit" value="Analyze Image">
+    </form>
+    
+    {% if error %}
+        <p style="color:red;">Error: {{ error }}</p>
+    {% endif %}
+    
+    {% if result %}
+        <hr>
+        <h3>Vision Analysis Result:</h3>
+        <pre>{{ result }}</pre>
+    {% endif %}
+</body>
+</html>

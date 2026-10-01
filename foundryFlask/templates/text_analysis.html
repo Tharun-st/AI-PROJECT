@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Inventory Text Analysis</title>
+</head>
+<body>
+    <h1>Inventory Text Analysis</h1>
+    <a href="/">Back to Home</a>
+    <hr>
+    
+    <h2>Extract Inventory Data from Logs/Emails</h2>
+    <form method="POST" action="/text-analysis">
+        <label for="text">Raw Text (e.g., shipping manifest, email):</label><br>
+        <textarea id="text" name="text" rows="10" cols="60" required></textarea><br><br>
+        
+        <input type="submit" value="Extract Data">
+    </form>
+    
+    {% if error %}
+        <p style="color:red;">Error: {{ error }}</p>
+    {% endif %}
+    
+    {% if result %}
+        <hr>
+        <h3>Extracted Inventory Details:</h3>
+        <pre>{{ result }}</pre>
+    {% endif %}
+</body>
+</html>

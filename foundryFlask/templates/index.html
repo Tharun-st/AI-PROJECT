@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>AI Inventory Monitor</title>
+</head>
+<body>
+    <h1>AI Inventory Monitor</h1>
+    
+    <h2>Current Inventory</h2>
+    <table border="1">
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Quantity</th>
+        </tr>
+        {% for item in inventory %}
+        <tr>
+            <td>{{ item.id }}</td>
+            <td>{{ item.name }}</td>
+            <td>{{ item.quantity }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    
+    <hr>
+    <h3>Configuration Status</h3>
+    <p>Connected to Azure AI API Endpoint: <strong>{{ api_endpoint }}</strong></p>
+    <p><em>(Check terminal for backend API simulated connection logs)</em></p>
+</body>
+</html>
